@@ -1,0 +1,16 @@
+1592 portforward.go:400] an error occurred forwarding 9081 -> 9080: error forwarding port 9080 to pod 8246f2efae64b11e1c40ef61a6de455ea5f8e38bac86b5cbdb26c03a3646b65d, uid : exit status 1: 2022/05/31 08:41:04 socat[11016] E connect(5, AF=2 127.0.0.1:9080, 16): Connection refused
+
+PS C:\Windows\system32> kubectl get service
+NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+hello-minikube    NodePort    10.102.45.87    <none>        7080:32484/TCP   30h
+hello-minikube1   NodePort    10.107.74.122   <none>        7080:30564/TCP   33m
+kubernetes        ClusterIP   10.96.0.1       <none>        443/TCP          31h
+test              NodePort    10.98.94.82     <none>        9080:30925/TCP   8m44s
+
+minikube service hello-minikube --url
+! Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 3.0886513s
+* Restarting the docker service may improve performance.
+http://192.168.49.2:32484
+* Starting tunnel for service hello-minikube.
+! Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+* Stopping tunnel for service hello-minikube.
